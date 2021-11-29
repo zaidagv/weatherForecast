@@ -30,7 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'weather' => [
-        'endpoint' => 'https://restcountries.com/v3.1/'
+        'endpoint' => 'api.openweathermap.org/data/2.5/weather?q=',
+        'api_key'  => env('OPEN_WEATHER_API_KEY')
     ]
 
 ];

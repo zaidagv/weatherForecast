@@ -17,7 +17,7 @@ class RestWeatherAdapter implements WeatherService {
 
     public function getRadiationUVdaily(string $name) : array
     {
-        $response = Http::get($this->endpoint . 'name/' . $name);
+        $response = Http::get($this->endpoint . $name . '&appid=' . config('services.weather.api_key'));
         return $response->json();
     }
 

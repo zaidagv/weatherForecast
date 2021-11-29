@@ -12,7 +12,7 @@ class WeatherController extends Controller
     {
         $name= request()->get('name');  
         $response = $weatherService->getRadiationUVdaily($name);
-        return json_encode($response[0]);
+        return json_encode($response);
     }
 
 }
