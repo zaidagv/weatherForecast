@@ -4,22 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Adapters\RestWeatherAdapter;
+use App\Contracts\WeatherService;
 
 class WeatherController extends Controller
 {
-    private $restWeatherAdapter;
-
-    public function __construct(RestWeatherAdapter $restWeatherAdapter)
+    public function getRadiationUVdaily( WeatherService $weatherService ): string
     {
-        $this->restWeatherAdpater = $restWeatherAdapter;
-    }
-
-    public function getRadiationUVdaily(): string
-    {
-        //$this->restWeatherAdapter->getRadiationUVdaily($name);
         $name= request()->get('name');  
-        $restWeatherAdapter= new RestWeatherAdapter;
-        $response= $restWeatherAdapter->getRadiationUVdaily($name);
+        $response = $weatherService->getRadiationUVdaily($name);
         return json_encode($response[0]);
     }
 

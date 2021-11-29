@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Contracts\WeatherService;
+use App\Adapters\RestWeatherAdapter;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(WeatherService::class, RestWeatherAdapter::Class);
+        
     }
 
     /**
